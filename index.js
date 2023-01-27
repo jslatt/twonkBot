@@ -83,43 +83,21 @@ const collections = {
     name: "Planetary Skies",
     id: "20d0f7e0f64cd5a9e6a12687a29ee896d5f487fe4e8f458798fcacceb4dca3c5",
   },
+  sweatpants: {
+    name: "Comfy Sweatpants",
+    id: "c3307641a7173380d214c3095697a1fdd30a40dc2376b82b437fbd1515c0a974",
+  },
+  muties: {
+    name: "Muties",
+    id: "aa6289308b7180b47b5f2b99ac9a057b8bcbf3f3c646d7a9e3b3a35805151bc7",
+  },
+  hoodie: {
+    name: "Cozy Hoodie",
+    id: "20d0f7e0f64cd5a9e6a12687a29ee896d5f487fe4e8f458798fcacceb4dca3c5",
+  }
 };
 
-function getFloor(twonk) {
 
-
-  const options = {
-    method: "GET",
-    hostname: "twonk-market.twetch.app",
-    port: null,
-    path: "/collections/" + collections[twonk].id + "/stats",
-    headers: {
-      cookie:
-        "INGRESSCOOKIE=99eac409553486401d5f6c9ca6906bfa%7Cc69a6e131abe426a06333fa400d87f90",
-      "Content-Length": "0",
-    },
-  };
-
-  const req = http.request(options, function (res) {
-    const chunks = [];
-
-    res.on("data", function (chunk) {
-      chunks.push(chunk);
-    });
-
-    res.on("end", function () {
-      const body = Buffer.concat(chunks);
-      d = JSON.parse(body);
-      floor = d.all_price_floor / 100000000
-      floor = floor.toFixed(3)
-
-      return floor;
-    });
-  });
-
-  req.end();
-
-}
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -127,59 +105,6 @@ client.on("ready", () => {
   const db = {}
 
   let floorScanner = setInterval(function () {
-
-    /*var objectKeysArray = Object.keys(collections);
-    objectKeysArray.forEach(function (objKey) {
-      // add back API Request 
-      const options = {
-        "method": "POST",
-        "hostname": "twonk-market.twetch.app",
-        "port": null,
-        "path": "/collections/" + collections[objKey].id + "/listings?limit=1",
-        "headers": {
-          "Content-Type": "application/json",
-          "Content-Length": "115"
-        }
-      };
-    
-      const req = http.request(options, function (res) {
-        const chunks = [];
-    
-        res.on("data", function (chunk) {
-          chunks.push(chunk);
-        });
-    
-        res.on("end", function () {
-          const body = Buffer.concat(chunks);
-          console.log(body.toString());
-          d = JSON.parse(body);
-          //floor = d.all_price_floor / 100000000
-          //floor = floor.toFixed(3)
-          console.log(d)
-
-          //var objValue = collections[objKey].name + " - " + floor + "\n";
-          //payload.push(objValue)
-          //client.channels.cache.get("1067151914535485451").send(objValue)
-
-          //interaction.reply(body.toString());
-        });
-      });
-    
-      req.write(JSON.stringify({
-        min: 0,
-        max: 1.7976931348623157e+308,
-        order: 'ASC',
-        order_by: 'satoshis_price',
-        status: 'listed'
-      }));
-
-      req.end();
-
-
-      
-    });*/
-
- 
 
     var objectKeysArray = Object.keys(collections);
     objectKeysArray.forEach(function (objKey) {
@@ -232,8 +157,30 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   if (interaction.commandName === "floor") {
+
+    var options = {
+      method: 'POST',
+      url: 'https://twonk-market.twetch.app/collections/' + interaction.options.getString('collection') + '/listings',
+      params: {limit: '1'},
+      headers: {'Content-Type': 'application/json'},
+      data: {
+        min: 0,
+        max: 1.7976931348623157e+308,
+        order: 'ASC',
+        order_by: 'satoshis_price',
+        status: 'listed'
+      }
+    };
     
-    await interaction.reply(getFloor('planetarySkies'));
+    axios.request(options).then(function (response) {
+      interaction.reply(response.data[0].total_price / 100000000 + " BSV")
+    }).catch(function (error) {
+      console.error(error);
+    });
+    
+
+    
+    //await interaction.reply(interaction.);
   }
 });
 client.login(process.env.TOKEN);
