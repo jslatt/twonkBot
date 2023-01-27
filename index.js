@@ -178,8 +178,8 @@ client.on("ready", () => {
             if (floor < db[response.data[0].rarity_status + " " + collections[objKey].name]) {
               console.log("Trigger")
   
-              //client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
-              client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + response.data[0].rarity_status + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
+              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
+              //client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + response.data[0].rarity_status + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
   
             }
             // Reassign Floor
@@ -217,8 +217,8 @@ client.on("ready", () => {
   
             if ((floor) < db[collections[objKey].name]) {
               
-              //client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
-              client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
+              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
+              //client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
             }
     
             // Reassign Floor
