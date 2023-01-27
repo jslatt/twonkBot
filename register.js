@@ -12,20 +12,118 @@ const commands = [
           "Name of Twonk collection you want the floor for, type ALL for all floor prices.",
         type: 3,
         required: true,
-        "choices": [
+        choices: [
           {
-              "name": "Rare Sirloin",
-              "value": "2d1d647aab8ffd5bc1e3c6f89dda3c3a1755035d2f877a94e2505f543d3b44e8"
+            name: "Rare Sirloin",
+            value:
+              "rareSirloin",
           },
           {
-              "name": "Cyber ID",
-              "value": "aff9cc05c7ece89af329415e1f7391bacf93ab6ad9006b8cfa1c43c94a3e04e0"
+            name: "Cyber ID",
+            value:
+              "cyberId",
           },
           {
-              "name": "Penguin",
-              "value": "animal_penguin"
-          }
-      ]
+            name: "Lizer Corp",
+            value:
+              "lizerCorp",
+          },
+          {
+            name: "Planetary Buttons",
+            value:
+              "planetaryButtons",
+          },
+          {
+            name: "Bored Waifus",
+            value:
+              "boredWaifus",
+          },
+          {
+            name: "Special Forces",
+            value:
+              "specialForces",
+          },
+          {
+            name: "Lab Monkies",
+            value:
+              "labMonkes",
+          },
+          {
+            name: "Apu Cartel",
+            value:
+              "apuCartel",
+          },
+          {
+            name: "Slurp Juice",
+            value:
+              "slurpJuice",
+          },
+          {
+            name: "NVM Bears",
+            value:
+              "nvmbears",
+          },
+          {
+            name: "Lizervaxx",
+            value:
+              "lizervaxx",
+          },
+          {
+            name: "Planetary Balls",
+            value:
+              "planetaryBalls",
+          },
+          {
+            name: "Planetary Pixels",
+            value:
+              "planetaryPixels",
+          },
+          {
+            name: "Fox Syndicate",
+            value:
+              "foxSyndicate",
+          },
+          {
+            name: "Graveyard",
+            value:
+              "graveyard",
+          },
+          {
+            name: "Frog Cartel",
+            value:
+              "frogCartel",
+          },
+          {
+            name: "Oni Society",
+            value:
+              "oniSociety",
+          },
+          {
+            name: "Astro Apes",
+            value:
+              "astroApes",
+          },
+          {
+            name: "Planetary Skies",
+            value:
+              "planetarySkies",
+          },
+          {
+            name: "Cozy Sweatpants",
+            value:
+              "sweatpants",
+          },
+          {
+            name: "Muties",
+            value:
+              "muties",
+          },
+          {
+            name: "Cozy Hoodie",
+            value:
+              "hoodie",
+          },
+        ],
       },
     ],
   },
