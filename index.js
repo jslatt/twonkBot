@@ -178,7 +178,7 @@ client.on("ready", () => {
             if (floor < db[response.data[0].rarity_status + " " + collections[objKey].name]) {
               console.log("Trigger")
   
-              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
+              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR (R):** " + rarity + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
               //client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + response.data[0].rarity_status + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
   
             }
@@ -238,7 +238,7 @@ client.on("ready", () => {
 
 
 
-  }, 1000 * 15);
+  }, 1000 * 60);
 });
 
 client.on("interactionCreate", async (interaction) => {
