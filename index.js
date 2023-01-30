@@ -145,6 +145,7 @@ client.on("ready", () => {
   const db = {}
 
   let floorScanner = setInterval(function () {
+    let counter = 0;
 
     var objectKeysArray = Object.keys(collections);
     objectKeysArray.forEach(function (objKey) {
@@ -172,14 +173,22 @@ client.on("ready", () => {
         axios.request(options).then(function (response) {
 
           if (response.data.length > 0) {
-            floor = response.data[0].total_price / 100000000
-            rarity = response.data[0].rarity_status
+            floor = (response.data[0].total_price / 100000000);
+            rarity = response.data[0].rarity_status;
+
+            oldPrice = db[response.data[0].rarity_status + " " + collections[objKey].name];
+            oldPriceShort = !isNaN(oldPrice)?oldPrice.toFixed(2):floor;
+
+            pctChg = ((floor / oldPrice) - 1) * 100;
   
-            if (floor < db[response.data[0].rarity_status + " " + collections[objKey].name]) {
-              console.log("Trigger")
+            if (floor < oldPrice) {
   
-              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR (R):** " + rarity + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
-              //client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + response.data[0].rarity_status + " " + collections[objKey].name + " " + floor + " (" + db[response.data[0].rarity_status + " " + collections[objKey].name] + ")")
+              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+  
+            }
+            if (floor > oldPrice) {
+  
+              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
   
             }
             // Reassign Floor
@@ -213,12 +222,21 @@ client.on("ready", () => {
         
         axios.request(options).then(function (response) {
           if (response.data.length > 0) {
-            floor = response.data[0].total_price / 100000000
+            floor = (response.data[0].total_price / 100000000);
+
+            oldPrice = db[collections[objKey].name];
+            oldPriceShort = !isNaN(oldPrice)?oldPrice.toFixed(2):floor;
+
+            pctChg = ((floor / oldPrice) - 1) * 100;
+
   
-            if ((floor) < db[collections[objKey].name]) {
+            if (floor < oldPrice) {
+              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
               
-              client.channels.cache.get("1067151914535485451").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
-              //client.channels.cache.get("1066861772574834728").send("**NEW FLOOR:** " + collections[objKey].name + " " + floor + " (" + db[collections[objKey].name] + ")")
+            }
+
+            if (floor > oldPrice) {  
+              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
             }
     
             // Reassign Floor
@@ -236,7 +254,7 @@ client.on("ready", () => {
 
 
 
-
+    //console.log("Scanned")
 
   }, 1000 * 60);
 });
