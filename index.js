@@ -231,12 +231,12 @@ client.on("ready", () => {
 
   
             if (floor < oldPrice) {
-              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get("1067151914535485451").send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
               
             }
 
             if (floor > oldPrice) {  
-              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get("1067151914535485451").send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
             }
     
             // Reassign Floor
