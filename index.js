@@ -152,6 +152,7 @@ client.on("ready", () => {
   let floorScanner = setInterval(function () {
     let counter = 0;
 
+
     var objectKeysArray = Object.keys(collections);
     objectKeysArray.forEach(function (objKey) {
       // IF HAS A RARITY PARAM
@@ -185,15 +186,25 @@ client.on("ready", () => {
             oldPriceShort = !isNaN(oldPrice)?oldPrice.toFixed(2):floor;
 
             pctChg = ((floor / oldPrice) - 1) * 100;
-  
+
+            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 25.00) {
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069995610322784306> move on " + rarity + " " + collections[objKey].name);
+            }
+            if (Math.abs(pctChg) >= 25.00) {
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069998559853805660> move on " + rarity + " " + collections[objKey].name);
+            }
+            
+            
+            // Floor Drops
             if (floor < oldPrice) {
   
-              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069999058346848336> ** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
   
             }
+            // Floor Bumps
             if (floor > oldPrice) {
   
-              client.channels.cache.get("1067151914535485451").send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069999087585333298> ** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
   
             }
             // Reassign Floor
@@ -234,14 +245,20 @@ client.on("ready", () => {
 
             pctChg = ((floor / oldPrice) - 1) * 100;
 
-  
+            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 25.00) {
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069995610322784306> move on " + rarity + " " + collections[objKey].name);
+            }
+            if (Math.abs(pctChg) >= 25.00) {
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069998559853805660> move on " + rarity + " " + collections[objKey].name);
+            }
+
             if (floor < oldPrice) {
-              client.channels.cache.get("1067151914535485451").send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069999058346848336> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
               
             }
 
             if (floor > oldPrice) {  
-              client.channels.cache.get("1067151914535485451").send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
+              client.channels.cache.get(process.env.CHANNEL).send("<@&1069999087585333298> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%]")
             }
     
             // Reassign Floor
