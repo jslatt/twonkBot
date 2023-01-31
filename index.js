@@ -11,6 +11,11 @@ const collections = {
     id: "2d1d647aab8ffd5bc1e3c6f89dda3c3a1755035d2f877a94e2505f543d3b44e8",
     rarity: true
   },
+  planetarySquares: {
+    name: "Planetary Squares",
+    id: "3f1b6a28ba26fd7cbc3729f5a174f750733a7d2f55e2f3ab796a76b4479eb7fc",
+    rarity: true
+  },
   cyberId: {
     name: "Cyber ID",
     id: "aff9cc05c7ece89af329415e1f7391bacf93ab6ad9006b8cfa1c43c94a3e04e0",
