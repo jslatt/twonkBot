@@ -113,13 +113,13 @@ const collections = {
   },
   astroApes: {
     name: "Astro Apes",
-    id: "20d0f7e0f64cd5a9e6a12687a29ee896d5f487fe4e8f458798fcacceb4dca3c5",
+    id: "7aaf5700968b4c5f78de43873f3450d6566d7f4463056090ad16ff51340f6509",
     rarity: true
 
   },
   planetarySkies: {
     name: "Planetary Skies",
-    id: "20d0f7e0f64cd5a9e6a12687a29ee896d5f487fe4e8f458798fcacceb4dca3c5",
+    id: "b9a47ebfeba619a97ddf44ef5bd4b3546bf05bf52391cd828154b19896811b52",
     rarity: true
 
   },
@@ -137,7 +137,7 @@ const collections = {
   },
   hoodie: {
     name: "Cozy Hoodie",
-    id: "20d0f7e0f64cd5a9e6a12687a29ee896d5f487fe4e8f458798fcacceb4dca3c5",
+    id: "acf48220b3a718f153331afc653bec29b8b631c91cc5edce85715dee68bc17cb",
     rarity: true
   }
 };
@@ -189,10 +189,10 @@ client.on("ready", () => {
 
             pctFlag = ""
 
-            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 25.00) {
+            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
               pctFlag = "<@&1069995610322784306>"
             }
-            if (Math.abs(pctChg) >= 25.00) {
+            if (Math.abs(pctChg) >= 50.00) {
               pctFlag = "<@&1069998559853805660>"
             }
             
@@ -200,13 +200,13 @@ client.on("ready", () => {
             // Floor Drops
             if (floor < oldPrice) {
   
-              client.channels.cache.get(process.env.CHANNEL).send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
   
             }
             // Floor Bumps
             if (floor > oldPrice) {
   
-              client.channels.cache.get(process.env.CHANNEL).send("** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
   
             }
             // Reassign Floor
@@ -249,20 +249,20 @@ client.on("ready", () => {
 
             pctFlag = ""
 
-            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 25.00) {
+            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
               pctFlag = "<@&1069995610322784306>"
             }
-            if (Math.abs(pctChg) >= 25.00) {
+            if (Math.abs(pctChg) >= 50.00) {
               pctFlag = "<@&1069998559853805660>"
             }
 
             if (floor < oldPrice) {
-              client.channels.cache.get(process.env.CHANNEL).send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336>" + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336>" + pctFlag)
               
             }
 
             if (floor > oldPrice) {  
-              client.channels.cache.get(process.env.CHANNEL).send("** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298> " + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298> " + pctFlag)
             }
     
             // Reassign Floor
