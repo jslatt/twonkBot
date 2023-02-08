@@ -200,13 +200,13 @@ client.on("ready", () => {
             // Floor Drops
             if (Math.abs(pctChg) >= 10.00 && floor < oldPrice) {
   
-              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
   
             }
             // Floor Bumps
             if (Math.abs(pctChg) >= 10.00 && floor > oldPrice) {
   
-              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
   
             }
             // Reassign Floor
@@ -257,12 +257,12 @@ client.on("ready", () => {
             }
 
             if (Math.abs(pctChg) >= 10.00 && floor < oldPrice) {
-              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336>" + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send(":arrow_down: ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336>" + pctFlag)
               
             }
 
             if (Math.abs(pctChg) >= 10.00 && floor > oldPrice) {  
-              client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298> " + pctFlag)
+              client.channels.cache.get(process.env.CHANNEL).send(":arrow_up: ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298> " + pctFlag)
             }
     
             // Reassign Floor
