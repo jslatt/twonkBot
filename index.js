@@ -189,22 +189,22 @@ client.on("ready", () => {
 
             pctFlag = ""
 
-            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
+            /*if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
               pctFlag = "<@&1069995610322784306>"
-            }
+            }*/
             if (Math.abs(pctChg) >= 50.00) {
               pctFlag = "<@&1069998559853805660>"
             }
             
             
             // Floor Drops
-            if (floor < oldPrice) {
+            if (Math.abs(pctChg) >= 10.00 && floor < oldPrice) {
   
               client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
   
             }
             // Floor Bumps
-            if (floor > oldPrice) {
+            if (Math.abs(pctChg) >= 10.00 && floor > oldPrice) {
   
               client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:>** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
   
@@ -249,19 +249,19 @@ client.on("ready", () => {
 
             pctFlag = ""
 
-            if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
+            /*if (Math.abs(pctChg) >= 10.00 && Math.abs(pctChg) < 50.00) {
               pctFlag = "<@&1069995610322784306>"
-            }
+            }*/
             if (Math.abs(pctChg) >= 50.00) {
               pctFlag = "<@&1069998559853805660>"
             }
 
-            if (floor < oldPrice) {
+            if (Math.abs(pctChg) >= 10.00 && floor < oldPrice) {
               client.channels.cache.get(process.env.CHANNEL).send("<:arrow_down:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336>" + pctFlag)
               
             }
 
-            if (floor > oldPrice) {  
+            if (Math.abs(pctChg) >= 10.00 && floor > oldPrice) {  
               client.channels.cache.get(process.env.CHANNEL).send("<:arrow_up:> ** " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298> " + pctFlag)
             }
     
