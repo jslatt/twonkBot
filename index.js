@@ -212,8 +212,9 @@ client.on("ready", () => {
                if (rarity == "Exotic") {
                 client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@1066856009454329876>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
               }
-  
-              client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+              else {
+                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+              }
   
             }
             // Floor Bumps
@@ -234,9 +235,10 @@ client.on("ready", () => {
               if (rarity == "Exotic") {
                 client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** <@1066856009454329876> " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
               }
-              
+              else {
+                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
+              }
   
-              client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
   
             }
             // Reassign Floor
