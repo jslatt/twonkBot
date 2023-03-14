@@ -200,55 +200,28 @@ client.on("ready", () => {
             // Floor Drops
             if (Math.abs(pctChg) >= 10.00 && floor < oldPrice) {
 
-              if (rarity == "Rare") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856218037075998>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
-                return;
+              switch (rarity) {
+                case "Rare":
+                  client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856218037075998>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+                break;
+                case "Epic":
+                  client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856171513843793>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+                break;
+                case "Legendary":
+                  client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856113796030484>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+                break;
+                case "Exotic":
+                  client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856009454329876>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+                break;
+                default:
+                  client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
+                break;
               }
-               if (rarity == "Epic") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856171513843793>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
-                return;
-              }
-               if (rarity == "Legendary") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856113796030484>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
-                return;
-              }
-               if (rarity == "Exotic") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** <@&1066856009454329876>  " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
-                return;
-              }
-              else {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_down:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999058346848336> " + pctFlag)
-              }
-  
             }
             // Floor Bumps
             if (Math.abs(pctChg) >= 10.00 && floor > oldPrice) {
+              client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
 
-              if (rarity == "Rare") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** <@&1066856218037075998> " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
-                return;
-              }
-
-              if (rarity == "Epic") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** <@&1066856171513843793> " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
-                return;
-              }
-
-
-              if (rarity == "Legendary") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** <@&1066856113796030484> " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
-                return;
-              }
-
-              if (rarity == "Exotic") {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** <@&1066856009454329876> " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
-                return;
-              }
-              else {
-                client.channels.cache.get(process.env.CHANNEL).send(":arrow_up:** " + rarity + " " + collections[objKey].name + "** " + floor.toFixed(2) + " (prev. " + oldPriceShort + ") [" + pctChg.toFixed(2) + "%] <@&1069999087585333298>" + pctFlag)
-              }
-  
-  
             }
             // Reassign Floor
             db[response.data[0].rarity_status + " " + collections[objKey].name] = floor
